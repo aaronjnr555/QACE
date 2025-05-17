@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "40058f3b-77d9-4a3d-b24e-b3c46beca639",
+		"name": "QACE_ASSESSMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29702272",
+		"_collection_link": "https://www.postman.com/martian-moon-404630/workspace/aaron-daniel-chiemezie/collection/29702272-40058f3b-77d9-4a3d-b24e-b3c46beca639?action=share&source=collection_link&creator=29702272"
+	},
+	"item": [
+		{
+			"name": "RegisterNewUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{MVM_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Daniel\",\n    \"last_name\": \"Aaron\",\n    \"address\": {\n        \"street\": \"176 Kirikiri road\",\n        \"city\": \"Apapa\",\n        \"state\": \"Lagos\",\n        \"country\": \"Nigeria\",\n        \"postal_code\": \"234\"\n    },\n    \"phone\": \"08030965367\",\n    \"dob\": \"1995-05-25\",\n    \"password\": \"Cutie@199510\",\n    \"email\": \"danaaron12345670@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.practicesoftwaretesting.com/users/register",
+					"protocol": "https",
+					"host": [
+						"api",
+						"practicesoftwaretesting",
+						"com"
+					],
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"Cutie@199510\",\n    \"email\": \"danaaron123456@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.practicesoftwaretesting.com/users/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"practicesoftwaretesting",
+						"com"
+					],
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{MVM_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"current_password\": \"Cutie@199510\",\n    \"new_password\": \"Cutie@1995101\",\n    \"new_password_confirmation\": \"Cutie@1995101\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.practicesoftwaretesting.com/users/change-password",
+					"protocol": "https",
+					"host": [
+						"api",
+						"practicesoftwaretesting",
+						"com"
+					],
+					"path": [
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ForgotPassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"customer@practicesoftwaretesting.com\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.practicesoftwaretesting.com/users/forgot-password",
+					"protocol": "https",
+					"host": [
+						"api",
+						"practicesoftwaretesting",
+						"com"
+					],
+					"path": [
+						"users",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request and HTTP status is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{MVM_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.practicesoftwaretesting.com/users/logout",
+					"protocol": "https",
+					"host": [
+						"api",
+						"practicesoftwaretesting",
+						"com"
+					],
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "MVM_Token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
